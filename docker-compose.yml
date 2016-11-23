@@ -1,0 +1,19 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo
+    expose:
+      - '27017'
+  davis:
+    build: .
+    command: node ./index.js
+    volumes:
+      - .:/usr/src/davis
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+    depends_on:
+      - mongodb
+    links:
+      - mongodb:mongo
