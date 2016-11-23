@@ -1,0 +1,14 @@
+{
+  "name": "davis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "dynatrace-davis": "git+https://<github_token>:x-oauth-basic@github.com/Dynatrace/davis-server.git"
+  },
+  "license": "ISC"
+}

@@ -6,11 +6,11 @@ services:
       - '27017'
   davis:
     build: .
-    command: node ./index.js
     volumes:
-      - .:/usr/src/davis
+      - .:/home/app/davis
+      - /home/app/davis/node_modules
     ports:
-      - "8080:8080"
+      - "8080:3000"
     expose:
       - "8080"
     depends_on:

@@ -1,15 +1,20 @@
-FROM node:argon
+FROM node
 
-RUN mkdir -p /usr/src/davis
-WORKDIR /usr/src/davis
+RUN useradd --user-group --create-home --shell /bin/false app &&\
+  npm install --global npm
 
+ENV HOME=/home/app
 
-# Install app dependencies
-RUN npm init
+COPY package.json $HOME/davis/
+RUN chown -R app:app $HOME/*
+
+USER app
+WORKDIR $HOME/davis
 RUN npm install
 
-# Bundle app source
-COPY . /usr/src/davis
+USER root
+COPY . $HOME/davis
+RUN chown -R app:app $HOME/*
+USER app
 
-EXPOSE 8080
-
+CMD ["node", "index.js"]
