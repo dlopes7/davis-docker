@@ -1,7 +1,7 @@
 ##Prerequisites
 
-**docker**
-**docker-compose**
+**docker**  
+**docker-compose**  
 
 ##Installation
 
@@ -10,3 +10,5 @@
 3. Edit config.json with at least Dynatrace and WIT credentials  
 4. docker-compose build
 5. docker-compose up
+
+
